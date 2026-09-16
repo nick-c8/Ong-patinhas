@@ -1,5 +1,478 @@
-body{
-background-color: azure;
-font-family: Arial, Helvetica, sans-serif;
+:root {
+    /* Cores */
+    --cor-primaria: #4a90e2;
+    --cor-secundaria: #5b9bd5;
+    --cor-hover: #357abd;
+    --cor-cabecalho: #8ecae6;
+    --cor-fundo: #f4f9fc;
+    --cor-branco: #ffffff;
+    --cor-texto: #333333;
+    --cor-contraste: #16425b;
+    --cor-borda: #bbbbbb;
+    --cor-sombra: rgba(0, 0, 0, 0.08);
 
+    /* Tipografia */
+    --fonte-principal: Arial, sans-serif;
+    --fonte-xs: 15px;
+    --fonte-sm: 16px;
+    --fonte-md: 18px;
+    --fonte-lg: 26px;
+    --fonte-xl: 32px;
+
+    /* Espaçamentos */
+    --espaco-xs: 5px;
+    --espaco-sm: 10px;
+    --espaco-md: 15px;
+    --espaco-lg: 20px;
+    --espaco-xl: 25px;
+    --espaco-xxl: 30px;
+    --espaco-xxxl: 40px;
+
+    /* Bordas */
+    --raio-pequeno: 6px;
+    --raio-medio: 8px;
+    --raio-grande: 10px;
+    --raio-xl: 12px;
+}
+
+/* Configuração geral */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: var(--fonte-principal);
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6;
+}
+
+/* Cabeçalho */
+header {
+    background-color: var(--cor-cabecalho);
+    text-align: center;
+    padding: var(--espaco-xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0 0 var(--espaco-lg);
+    color: var(--cor-contraste);
+    font-size: var(--fonte-xl);
+    text-align: center;
+}
+
+/* Menu */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--espaco-md);
+}
+
+nav a {
+    background-color: var(--cor-primaria);
+    color: var(--cor-branco);
+    text-decoration: none;
+    padding: var(--espaco-sm) var(--espaco-lg);
+    border-radius: var(--raio-medio);
+    font-weight: bold;
+}
+
+nav a:hover {
+    background-color: var(--cor-hover);
+}
+
+/* Controle do menu hambúrguer */
+#menu-toggle {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 30px;
+    color: #16425b;
+    cursor: pointer;
+}
+
+/* Menu no computador */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+nav a {
+    background-color: var(--cor-primaria);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    background-color: var(--cor-hover);
+}
+
+/* Menu em dispositivos móveis */
+@media (max-width: 600px) {
+
+    .menu-icon {
+        display: block;
+        margin-top: 10px;
+    }
+
+    nav {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    nav a {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Quando o menu é ativado */
+    #menu-toggle:checked ~ nav {
+        display: flex;
+    }
+}
+
+/* Conteúdo principal */
+main {
+    width: 80%;
+    max-width: 900px;
+    margin: var(--espaco-xxxl) auto;
+    padding: var(--espaco-xxl);
+
+    display:grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+/* Seções */
+section {
+    background-color: var(--cor-branco);
+    margin-bottom: var(--espaco-xxl);
+    padding: var(--espaco-xxl);
+    border-radius: var(--raio-xl);
+    box-shadow: 0 2px 8px var(--cor-sombra);
+    display: flex;
+    flex-direction: column;
+}
+
+section h2 {
+    color: var(--cor-secundaria);
+    margin-top: 0;
+}
+
+/* Imagens */
+section img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: var(--espaco-lg) auto;
+    border-radius: var(--raio-grande);
+}
+
+/* Listas */
+ul {
+    padding-left: var(--espaco-xl);
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+/* Links */
+main a {
+    color: var(--cor-contraste);
+}
+
+/* Botão de ação */
+main a[href="cadastro.html"] {
+    display: inline-block;
+    background-color: var(--cor-secundaria);
+    color: var(--cor-branco);
+    padding: var(--espaco-sm) 18px;
+    border-radius: var(--raio-medio);
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: var(--espaco-sm);
+}
+
+main a[href="cadastro.html"]:hover {
+    background-color: var(--cor-hover);
+}
+
+/* Formulários */
+form {
+    background-color: var(--cor-branco);
+    padding: var(--espaco-xxl);
+    border-radius: var(--raio-xl);
+    box-shadow: 0 2px 8px var(--cor-sombra);
+}
+
+fieldset {
+    border: 2px solid var(--cor-cabecalho);
+    border-radius: var(--raio-grande);
+    padding: var(--espaco-lg);
+    margin-bottom: var(--espaco-lg);
+}
+
+legend {
+    color: var(--cor-contraste);
+    font-weight: bold;
+    padding: 0 8px;
+}
+
+label {
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: var(--espaco-sm);
+    margin-top: var(--espaco-xs);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-pequeno);
+    font-size: var(--fonte-xs);
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Estados de validação dos formulários */
+
+input:valid,
+select:valid,
+textarea:valid {
+    border: 2px solid #2e8b57;
+    background-color: #f2fff7;
+}
+
+input:invalid,
+select:invalid,
+textarea:invalid {
+    border: 2px solid #d9534f;
+    background-color: #fff5f5;
+}
+
+/* Destaque quando o campo está sendo preenchido */
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.25);
+}
+
+/* Botão do formulário */
+button,
+input[type="submit"] {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-branco);
+    border: none;
+    padding: 12px var(--espaco-xl);
+    border-radius: var(--raio-medio);
+    font-size: var(--fonte-sm);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    background-color: var(--cor-hover);
+}
+
+/* Rodapé */
+footer {
+    background-color: var(--cor-contraste);
+    color: var(--cor-branco);
+    text-align: center;
+    padding: var(--espaco-lg);
+    margin-top: var(--espaco-xxxl);
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+
+    header h1 {
+        font-size: var(--fonte-lg);
+    }
+
+    nav a {
+        display: inline-block;
+        margin: var(--espaco-xs);
+    }
+
+    main {
+        grid-template-columns: 1fr;
+        width: 100%;
+        padding: var(--espaco-sm);
+    }
+
+    section,
+    form {
+        padding: 18px;
+    }
+}
+
+/* =========================
+   BADGES
+========================= */
+
+.badge {
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 5px;
+    border-radius: 15px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.badge-disponivel {
+    background-color: #d9f2e3;
+    color: #176b3a;
+}
+
+.badge-adocao {
+    background-color: #dceeff;
+    color: #16425b;
+}
+
+.badge-urgente {
+    background-color: #ffe1e1;
+    color: #a52a2a;
+}
+
+
+/* =========================
+   CAIXAS DE ALERTA
+========================= */
+
+.alerta {
+    padding: 15px 20px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border-left: 5px solid;
+}
+
+.alerta-sucesso {
+    background-color: #e8f8ee;
+    color: #176b3a;
+    border-color: #2e8b57;
+}
+
+.alerta-aviso {
+    background-color: #fff8df;
+    color: #765d00;
+    border-color: #d6a800;
+}
+
+
+/* =========================
+   TOAST
+========================= */
+
+.toast {
+    display: none;
+    margin-top: 15px;
+    padding: 15px 20px;
+    background-color: #16425b;
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px var(--cor-sombra);
+}
+
+.toast.mostrar {
+    display: block;
+}
+/* Animais para adoção */
+
+.animais {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+}
+
+.animal-card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px var(--cor-sombra);
+    text-align: center;
+}
+
+.animal-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.animal-card h3 {
+    color: var(--cor-contraste);
+    margin-bottom: 10px;
+}
+
+.botao-adotar {
+    display: inline-block;
+    background-color: var(--cor-primaria);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.botao-adotar:hover {
+    background-color: var(--cor-hover);
+}
+
+.controle-mensagem {
+    display: none;
+}
+
+.botao-enviar {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 25px;
+    background-color: var(--cor-primaria);
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.botao-enviar:hover {
+    background-color: var(--cor-hover);
+}
+
+.mensagem-sucesso {
+    display: none;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e8f8ee;
+    color: #176b3a;
+    border: 2px solid #2e8b57;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.controle-mensagem:checked ~ .mensagem-sucesso {
+    display: block;
 }
