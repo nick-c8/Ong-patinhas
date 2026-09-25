@@ -1,70 +1,207 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ONG Patinhas</title>
-
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ONG Patinhas</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
+<header>
+    <h1>ONG Patinhas 🐾</h1>
+    <button id="menu-toggle" type="button" aria-label="Abrir menu">☰</button>
+    <nav>
+        <a href="#inicio">Início</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#cadastro">Quero Ajudar</a>
+    </nav>
+</header>
 
-    <header>
-        <h1>ONG Patinhas 🐾</h1>
-        
-    <input type="checkbox" id="menu-toggle">
+<main id="app">
+    <section id="inicio" class="pagina">
+        <h2>Salvando animais, transformando vidas</h2>
+        <img src="img/animais reagatados1.png" alt="Animais resgatados pela ONG Patinhas" width="500">
+        <p>A ONG Patinhas trabalha para resgatar animais de rua, oferecer cuidados, alimentação e buscar lares responsáveis.</p>
+    </section>
 
-     <label for="menu-toggle" class="menu-icon">
-        ☰
-    </label>
-        <nav>
-            <a href="index.html">Início</a> |
-            <a href="projetos.html">Projetos</a> |
-            <a href="cadastro.html">Quero Ajudar</a>
-        </nav>
-    </header>
+    <section id="projetos" class="pagina">
+        <h2>Nossos Projetos</h2>
 
-    <main>
         <section>
-            <h2>Salvando animais, transformando vidas</h2>
-
-            <img src="img/animais reagatados1.png"
-            alt="Animais resgatados pela ONG Patinhas"
-            width="500">
-
-            <p>
-                A ONG Patinhas trabalha para resgatar animais de rua,
-                oferecendo cuidados, alimentação e buscando lares responsáveis.
-            </p>
+            <h3>🐕 Resgate de animais</h3>
+            <img src="img/anima resgats.png" alt="Animais resgatados pela ONG Patinhas" width="500">
+            <p>Resgatamos animais abandonados ou encontrados em situação de vulnerabilidade nas ruas.</p>
         </section>
 
         <section>
-            <h2>Nossa missão</h2>
-
-            <p>
-                Promover o bem-estar dos animais abandonados e incentivar
-                a adoção responsável e a solidariedade.
-            </p>
+            <h3>🏥 Cuidados veterinários</h3>
+            <img src="img/veterinarios.png" alt="Atendimento veterinário aos animais resgatados" width="500">
+            <p>Buscamos oferecer atendimento veterinário, vacinação e tratamentos necessários aos animais resgatados.</p>
         </section>
 
         <section>
-            <h2>Como você pode ajudar?</h2>
-
-            <ul>
-                <li>Adotando um animal</li>
-                <li>Oferecendo um lar temporário</li>
-                <li>Doando alimentos</li>
-                <li>Participando como voluntário</li>
-            </ul>
-
-            <a href="cadastro.html">Quero ser voluntário</a>
+            <h3>🍲 Alimentação</h3>
+            <img src="img/ração.png" alt="Alimentação dos animais acolhidos" width="500">
+            <p>Arrecadamos alimentos para garantir uma alimentação adequada aos animais acolhidos.</p>
         </section>
-    </main>
 
-    <footer>
-        <p>&copy; 2026 ONG Patinhas — Todos os direitos reservados.</p>
-    </footer>
+        <section>
+            <h3>🏡 Adoção responsável</h3>
+            <img src="img/gato.png" alt="Animal disponível para adoção" width="500">
+            <p>Procuramos famílias responsáveis que possam oferecer um lar seguro e cheio de carinho.</p>
+        </section>
 
+        <section>
+            <h3>🐾 Lar temporário</h3>
+            <img src="img/lartemporario.png" alt="Lar temporário para animais resgatados" width="500">
+            <p>Pessoas voluntárias podem oferecer um espaço temporário enquanto os animais aguardam uma adoção.</p>
+        </section>
+
+        <section>
+            <h2>Animais para adoção</h2>
+            <div class="filtros">
+                <button class="filtro ativo" data-filtro="todos">Todos</button>
+                <button class="filtro" data-filtro="disponivel">Disponíveis</button>
+                <button class="filtro" data-filtro="adocao">Em adoção</button>
+                <button class="filtro" data-filtro="urgente">Urgentes</button>
+            </div>
+            <div class="animais"></div>
+        </section>
+
+        <section id="fila-adocao">
+            <h2>Entre na fila de adoção</h2>
+            <p>Preencha o formulário para demonstrar interesse em adotar.</p>
+            <form id="form-adocao">
+                <fieldset>
+                    <legend>Dados para adoção</legend>
+                    <label for="adocao-nome">Nome completo:</label>
+                    <input type="text" id="adocao-nome" name="nome" required minlength="3">
+
+                    <label for="adocao-email">E-mail:</label>
+                    <input type="email" id="adocao-email" name="email" required>
+
+                    <label for="adocao-telefone">Telefone:</label>
+                    <input type="tel" id="adocao-telefone" name="telefone" required>
+
+                    <label for="animal">Animal de interesse:</label>
+                    <select id="animal" name="animal" required>
+                        <option value="">Selecione um animal</option>
+                        <option value="thor">Thor</option>
+                        <option value="luna">Luna</option>
+                        <option value="bob">Bob</option>
+                    </select>
+
+                    <label for="adocao-mensagem">Por que deseja adotar?</label>
+                    <textarea id="adocao-mensagem" name="mensagem" rows="4" required></textarea>
+
+                    <button type="submit">Entrar na fila</button>
+                    <div id="mensagem-sucesso" class="mensagem-sucesso" role="status"></div>
+                </fieldset>
+            </form>
+        </section>
+
+        <section class="anuncio">
+            <h2>📢 Anuncie aqui</h2>
+            <p>Sua empresa pode apoiar a ONG Patinhas e contribuir para o cuidado e a adoção de animais resgatados.</p>
+            <a href="mailto:contato@ongpatinhas.com?subject=Interesse%20em%20anunciar%20no%20site" class="botao-anunciar">Entre em contato para anunciar</a>
+        </section>
+    </section>
+
+    <section id="cadastro" class="pagina">
+        <h2>Cadastre-se para ajudar</h2>
+        <p>Preencha o formulário abaixo para fazer parte da ONG Patinhas.</p>
+
+        <form id="form-ajudar">
+            <fieldset>
+                <legend>Dados pessoais</legend>
+                <label for="nome">Nome completo:</label>
+                <input type="text" id="nome" name="nome" required minlength="3" maxlength="100">
+
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="cpf">CPF:</label>
+                <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00"
+                       pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}" maxlength="14" required>
+
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000"
+                       pattern="\([0-9]{2}\) [0-9]{5}-[0-9]{4}" maxlength="15" required>
+
+                <label for="nascimento">Data de nascimento:</label>
+                <input type="date" id="nascimento" name="nascimento" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Endereço</legend>
+                <label for="cep">CEP:</label>
+                <input type="text" id="cep" name="cep" placeholder="00000-000"
+                       pattern="[0-9]{5}-[0-9]{3}" maxlength="9" required>
+
+                <label for="endereco">Endereço:</label>
+                <input type="text" id="endereco" name="endereco" required>
+
+                <label for="numero">Número:</label>
+                <input type="number" id="numero" name="numero" min="1" required>
+
+                <label for="cidade">Cidade:</label>
+                <input type="text" id="cidade" name="cidade" required>
+
+                <label for="estado">Estado:</label>
+                <select id="estado" name="estado" required>
+                    <option value="">Selecione</option>
+                    <option value="MG">Minas Gerais</option>
+                    <option value="SP">São Paulo</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="ES">Espírito Santo</option>
+                    <option value="BA">Bahia</option>
+                    <option value="PR">Paraná</option>
+                    <option value="SC">Santa Catarina</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                </select>
+            </fieldset>
+
+            <fieldset>
+                <legend>Como você deseja ajudar?</legend>
+                <label for="ajuda">Área de interesse:</label>
+                <select id="ajuda" name="ajuda" required>
+                    <option value="">Selecione</option>
+                    <option value="resgate">Resgate de animais</option>
+                    <option value="lar-temporario">Lar temporário</option>
+                    <option value="adocao">Adoção responsável</option>
+                    <option value="doacao">Doação</option>
+                    <option value="eventos">Eventos e campanhas</option>
+                </select>
+
+                <label for="disponibilidade">Disponibilidade:</label>
+                <select id="disponibilidade" name="disponibilidade" required>
+                    <option value="">Selecione</option>
+                    <option value="semana">Durante a semana</option>
+                    <option value="fim-semana">Finais de semana</option>
+                    <option value="ambos">Semana e finais de semana</option>
+                </select>
+
+                <label for="mensagem">Conte um pouco sobre você:</label>
+                <textarea id="mensagem" name="mensagem" rows="5" maxlength="500"
+                          placeholder="Como você gostaria de contribuir?"></textarea>
+            </fieldset>
+
+            <label>
+                <input type="checkbox" name="termos" required>
+                Aceito participar como colaborador da ONG Patinhas.
+            </label>
+
+            <button type="submit">Quero ajudar!</button>
+            <button type="reset">Limpar formulário</button>
+            <div id="mensagem-ajuda" class="mensagem-sucesso" role="status"></div>
+        </form>
+    </section>
+</main>
+
+<footer>
+    <p>© 2026 ONG Patinhas - Todos os direitos reservados.</p>
+</footer>
+
+<script type="module" src="js/app.js"></script>
 </body>
 </html>
